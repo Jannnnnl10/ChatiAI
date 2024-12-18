@@ -20,6 +20,35 @@ body {
     align-items: center;
     color: white;
     padding-top: 20px;  
+    position: relative; 
+}
+
+#refreshContainer {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;  
+}
+
+#refreshText {
+    margin-right: 10px;  
+    font-size: 14px;
+    color: white;
+}
+
+#clearChatButton {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-image: url('https://www.pinclipart.com/picdir/middle/138-1385075_clipart-chiffre-gratuit.png'); 
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#clearChatButton:hover {
+    opacity: 0.8;
 }
 
 h1.web-title {
@@ -35,6 +64,7 @@ h1.web-title {
     align-items: center;
     padding: 20px;
     position: relative;
+    background-color: #d5d5d5;
 }
 
 .container {
@@ -50,11 +80,45 @@ h2 {
     font-size: 36px;
 }
 
+#chatbox {
+    width: 700px;
+    height: 400px;
+    overflow-y: auto;
+    border: 3px solid #4a80c0;
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+    transition: all 0.3s ease;
+}
+
+#chatlog {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#chatlog .user {
+    align-self: flex-end;
+    background-color: #cce5ff;
+    padding: 8px;
+    border-radius: 15px;
+    max-width: 60%;
+}
+
+#chatlog .bot {
+    align-self: flex-start;
+    background-color: #e6e6e6;
+    padding: 8px;
+    border-radius: 15px;
+    max-width: 60%;
+}
+
 #chatbar {
     width: 700px;
     max-width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
     flex-wrap: wrap; 
@@ -67,23 +131,11 @@ h2 {
     padding: 15px;
     font-size: 16px;
     line-height: 1.5;
-    border: 1px solid #ccc;
+    border: 1px solid #4a80c0;
     border-radius: 30px;
     background-color: #fff;
     color: #000000;
     box-sizing: border-box;
-}
-
-#chatbar input:focus {
-    outline: none;
-    border: 2px solid #000000;
-    border-color: #000000;
-    background-color: #fff;
-}
-
-#chatbar input::placeholder {
-    color: #aaa;
-    font-style: italic;
 }
 
 #submit {
@@ -94,6 +146,7 @@ h2 {
     background-size: cover;
     border-radius: 50%;
     cursor: pointer;
+    margin-left: 20px;
 }
 
 #submit:hover {
@@ -111,18 +164,116 @@ h2 {
 
 
 
-
-
-
-
-
-@media (max-width: 768px) {
-    #chatbar {
-        width: 90%;  /* Chatbar nimmt 90% der Bildschirmbreite ein */
-        margin-bottom: 20px;
+/* Responsive Design */
+@media (max-width: 1024px) {
+    #wrapper {
+        flex-direction: column;
     }
+
+    #sidebar {
+        width: 100%; 
+        text-align: center;
+    }
+
+    #main {
+        width: 100%;
+        padding: 20px;
+    }
+
+    #chatbox {
+        width: 90%;
+        height: 350px;
+    }
+
     #chatbar input {
-        font-size: 14px;  /* Kleinere Schriftgröße auf kleinen Bildschirmen */
+        width: 70%;
+    }
+
+    #submit {
+        width: 45px;
+        height: 45px;
+    }
+
+    #refreshContainer {
+        position: relative;
+        bottom: 0;
+        left: 20px;
+        margin-top: 10px;
     }
 }
 
+@media (max-width: 768px) {
+    #sidebar {
+        width: 100%;
+        padding-top: 10px;
+        text-align: center;
+    }
+
+    h1.web-title {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    #chatbox {
+        width: 95%;
+        height: 300px;
+    }
+
+    #chatbar input {
+        width: 65%;
+        font-size: 14px;
+    }
+
+    #submit {
+        width: 45px;
+        height: 45px;
+    }
+
+    #clearChatButton {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    #sidebar {
+        width: 100%;
+        padding-top: 5px;
+        text-align: center;
+    }
+
+    h1.web-title {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    #chatbox {
+        width: 95%;
+        height: 250px;
+    }
+
+    #chatbar input {
+        width: 60%;
+        font-size: 12px;
+    }
+
+    #submit {
+        width: 40px;
+        height: 40px;
+    }
+
+    #clearChatButton {
+        width: 30px;
+        height: 30px;
+    }
+
+    #disclaimer {
+        font-size: 12px; 
+    }
+}

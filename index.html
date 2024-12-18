@@ -8,21 +8,28 @@
 </head>
 <body>
     <div id="wrapper">
-
         <div id="sidebar">
             <h1 class="web-title">ChatiAI</h1>
+            <div id="refreshContainer">
+                <span id="refreshText">Refresh chat</span>
+                <button id="clearChatButton" title="Clear Chat"></button>
+            </div>
         </div>
-
 
         <div id="main">
             <div class="container">
-                <h2>How can I help you today?</h2>
+                <h2 id="welcomeMessage">How can I help you today?</h2>
+            </div>
+
+            <div id="chatbox" style="display: none;">
+                <div id="chatlog"></div> 
             </div>
 
             <div id="chatbar">
-                <input type="text" placeholder="Chat with ChatiAI by sending a message">
-                <button id="submit"></button> 
-            </div>    
+                <input type="text" id="userInput" placeholder="Chat with ChatiAI by sending a message">
+                <button id="submit" onclick="sendMessage()"></button> 
+            </div>
+            
             <p id="disclaimer">ChatiAI can make mistakes. Make sure to verify important information</p>
         </div>
     </div>
