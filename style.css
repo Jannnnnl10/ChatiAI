@@ -2,59 +2,82 @@ body {
     margin: 0;
     height: 100vh;
     display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: flex-end;  
     font-family: Arial, sans-serif;
     background-color: #f4f4f463;
+}
+
+#wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    width: 200px;
+    background-color: #4a80c0;  
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+    padding-top: 20px;  
+}
+
+h1.web-title {
+    font-size: 36px;
+    margin: 0;
+}
+
+#main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px;
     position: relative;
 }
 
-h1 {
-    position: absolute;
-    top: 20px;  
-    left: 30px; 
-    margin: 0;
-    font-size: 36px;
-    text-decoration-style: dashed;
-}
-
 .container {
+    flex-grow: 1; 
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 h2 {
-    text-align: center; 
+    text-align: center;
+    margin: 0;
+    font-size: 36px;
 }
 
 #chatbar {
     width: 700px;
+    max-width: 100%;
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;  
+    margin-bottom: 40px;
+    flex-wrap: wrap; 
 }
 
 #chatbar input {
-    width: 80%;  
+    width: 80%;
+    min-width: 300px;
     height: 50px;
     padding: 15px;
     font-size: 16px;
     line-height: 1.5;
     border: 1px solid #ccc;
     border-radius: 30px;
-    resize: none;
     background-color: #fff;
-    color: #333;
+    color: #000000;
     box-sizing: border-box;
 }
 
 #chatbar input:focus {
     outline: none;
-    border-color: #4f8ef7;
+    border: 2px solid #000000;
+    border-color: #000000;
     background-color: #fff;
 }
 
@@ -67,23 +90,39 @@ h2 {
     width: 50px;
     height: 50px;
     border: none;
-    background-image: url('https://e7.pngegg.com/pngimages/127/313/png-clipart-computer-icons-flickr-social-media-arrow-circle-angle-logo-thumbnail.png'); 
+    background-image: url('https://e7.pngegg.com/pngimages/127/313/png-clipart-computer-icons-flickr-social-media-arrow-circle-angle-logo-thumbnail.png');
     background-size: cover;
-    border-radius: 50%; 
-    cursor: pointer; 
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 #submit:hover {
-    opacity: 0.8; 
+    opacity: 0.8;
 }
-
-
 
 #disclaimer {
     font-size: 14px;
     color: #666;
-    margin-top: 10px;  /* Abstand nach oben zum Text */
-    text-align: center; /* Zentriert den Text */
+    margin-top: 10px;
+    text-align: center;
     width: 100%;
     padding-bottom: 10px;
 }
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    #chatbar {
+        width: 90%;  /* Chatbar nimmt 90% der Bildschirmbreite ein */
+        margin-bottom: 20px;
+    }
+    #chatbar input {
+        font-size: 14px;  /* Kleinere Schriftgröße auf kleinen Bildschirmen */
+    }
+}
+
